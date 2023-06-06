@@ -1,0 +1,14 @@
+spring:
+  cloud:
+    azure:
+      keyvault:
+        secret:
+          endpoint: 'https://XXXXXXXXXXXXXXXXXXXXX.vault.azure.net/'
+          property-sources[0]:
+            endpoint: 'https://XXXXXXXXXXXXXXXXXXXXX.vault.azure.net/'
+            credential:
+              managed-identity-enabled: true
+              client-id: xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+
+info:
+  from-kv: '${secret-name}'
