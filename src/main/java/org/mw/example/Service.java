@@ -1,16 +1,17 @@
 package org.mw.example;
 
-import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@org.springframework.stereotype.Service
+@RestController("/")
 public class Service {
 
     @Value("${info.from-kv}")
     private String valueFromKV;
 
-    @PostConstruct
-    public void init() {
-        System.out.println(valueFromKV);
+    @GetMapping("/")
+    public String getVal() {
+        return valueFromKV;
     }
 }
